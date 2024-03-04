@@ -98,7 +98,7 @@ body {
         background-color: #E62E09;
     }
 </style>
-</head>
+<style type="text/css" id="operaUserStyle"></style></head>
 <body>
     <header>
         <h1>Wesley Premiações</h1>
@@ -106,7 +106,7 @@ body {
     <div class="container">
         <img src="../static/iphone.jpg" alt="Foto do Prêmio">
         <h2>Iphone 15 Pro Max</h2>
-<div><p>Concorre por apenas </p><div id="valorcentavos">Valor: R$ 3498.5</div></div>
+<div><p>Concorre por apenas </p><div id="valorcentavos">Valor: R$ 1</div></div>
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
     <div class="amount">
         <div class="form-group quantity-input" style="text-align: center; margin-bottom: 0; display: flex; justify-content: center; align-items: center;">
@@ -144,8 +144,10 @@ function decreaseItemCount(numero) {
     itemCount = parseInt(itemCount);
     numero = parseInt(numero);
     itemCount = itemCount - numero;
-    document.getElementById('numbersA').value = itemCount;
-    document.getElementById('valorcentavos').innerText = "Valor: R$ " + (document.getElementById('numbersA').value * 0.5);
+    if(itemCount>0){
+        document.getElementById('numbersA').value = itemCount;
+        document.getElementById('valorcentavos').innerText = "Valor: R$ " + (document.getElementById('numbersA').value * 0.5);
+}
 }
 </script>
 
