@@ -211,8 +211,9 @@ body {
         <input type="tel" class="input-field" id="phone" name="phone" placeholder="Seu número de telefone" required="">
         <input type="tel" class="input-field" id="confirm-phone" name="confirm-phone" placeholder="Confirme seu número de telefone" required="">
         <input type="text" class="input-field" id="fullname" name="fullname" placeholder="Seu nome completo" required="">
-        <button id="submit-btn" type="submit">Cadastrar e Pagar</button>
+        
     </form>
+    <button id="submit-btn" onclick="checar()">Cadastrar e Pagar</button>
         <script>
     document.getElementById('confirm-phone').addEventListener('input', function (e) {
         let input = e.target.value.replace(/\D/g, '');
@@ -246,7 +247,21 @@ body {
         }
 
         e.target.value = formattedInput;
-    });</script>
+    });
+
+function checar() {
+    cel1 = document.getElementById('phone').value
+    cel2 = document.getElementById('confirm-phone').value
+    if(cel1 == cel2){
+        document.getElementById('submit-btn').addEventListener('click', function() {
+        window.location.href = 'https://natal-feliz.vercel.app/consultar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
+    });
+    }else{
+        alert("Os números não são iguais")
+    }
+}
+    
+</script>
         
 
 
