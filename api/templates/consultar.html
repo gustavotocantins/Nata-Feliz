@@ -1,15 +1,32 @@
 <html lang="pt-BR"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio</title>
-    <style> .input-field {
-        width: 100%;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulta de Cotas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #E62E09;
+        color: #fff;
+        padding: 10px 0;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .input-field {
         border: 2px solid #ccc;
         border-radius: 5px;
         padding: 10px 15px;
         font-size: 16px;
-        margin-bottom: 15px;
-        box-sizing: border-box;
+        outline: none;
         transition: border-color 0.3s ease;
     }
 
@@ -17,182 +34,37 @@
         border-color: #4CAF50;
     }
 
-    #submit-btn {
+    #participate-btn {
         background-color: #E62E09;
         color: #fff;
         border: none;
         border-radius: 5px;
-        padding: 15px 30px;
+        padding: 15px 60px;
         font-size: 18px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    #submit-btn:hover {
-        background-color: #FF5733;
-    }
-
-    .error-message {
-        color: red;
-    }
-p{
-font-family: Arial, sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-}
-#rules-text {
-        padding: 20px;
-        margin: 20px;
-        border: 2px solid #333;
-        border-radius: 10px;
-        background-color: #ecf0f1;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-        color: #333;
-    }
-#valorcentavos {
-    background-color: #333;
-    color: white;
-    width: 140px;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-padding: 15px;
-}    
-body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #E62E09;
-            color: #fff;
-            padding: 10px 0;
-        }
-        #partebaixo{
-        background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-        .container {
-            padding: 20px;
-        }
-        #item-count {
-            font-size: 24px;
-        }
-        #participate-btn {
-            background-color: #E62E09;
-            color: #fff;
-            border: none;
-            padding: 15px 60px;
-            border-radius: 15px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-    button.minhacompra {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 15px 50px;
-            border-radius: 0px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 5px;
-    }
-        #rules-text {
-            margin-top: 20px;
-            text-align: center;
-        }
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-    .quantity-button {
-    background: #E62E09;
-    color: white;
-    border-radius: 300px;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.quantity-icon {
-    font-size: 25px;
-    color: #000;
-}
-
-.quantity-input-field {
-    width: 100px; /* ajuste conforme necessário */
-    text-align: center;
-    color: #000000;
-    font-weight: 200;
-    font-size: 20px;
-    border: none;
-    border-bottom: 2px solid #000;
-    padding: 5px;
-    margin: 0 10px; /* ajuste conforme necessário */
-    outline: none;
-}
-
-    .button-container {
-        background-color: #333;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        border-radius: 15px;
-    }
-
-    .increment-button {
-        background-color: #333;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .increment-button:hover {
-        background-color: #E62E09;
+        margin-top: 20px;
     }
 </style>
-<style type="text/css" id="operaUserStyle"></style></head><body>
-
-    <header>
-        <h1>Will Premiações</h1>
-    </header>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+<header>
+    <h1>Will Premiações</h1>
+</header>
+<div class="container">
+    <h2>CONSULTAR SUAS COTAS</h2>
     <div class="container">
-        <img src="../static/iphone.jpg" alt="Foto do Prêmio">
-        <h2>Você comprou 34 cotas no valor de R$ 10,00</h2>
-<form>
-        <input type="tel" class="input-field" id="phone" name="phone" placeholder="Seu número de telefone" required="">
-        <input type="tel" class="input-field" id="confirm-phone" name="confirm-phone" placeholder="Confirme seu número de telefone" required="">
-        <input type="text" class="input-field" id="fullname" name="fullname" placeholder="Seu nome completo" required="">
-        <button id="submit-btn" type="submit">Cadastrar e Pagar</button>
-    </form>
-        
-
-
-
-        
-        
-        
-
-     
+        <form>
+            <input type="tel" class="input-field" id="phone" name="phone" placeholder="(xx) xxxxx-xxxx" required="">
+            <button id="participate-btn" type="submit">CONSULTAR</button>
+        </form>
     </div>
-    
 
-
-    
-
-    
+<div>
+    <h3>Nome da pessoa</h3>
+    <p>Quantidade de Cotas: </p>
+    <p>Valor pago: </p>
+</div>
+</div>
 
 <script>
     document.getElementById('phone').addEventListener('input', function (e) {
@@ -212,4 +84,6 @@ body {
         e.target.value = formattedInput;
     });
 </script>
+
+
 </body></html>
