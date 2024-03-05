@@ -1,7 +1,43 @@
 <html lang="pt-BR"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio</title>
+    <title>Sorteio</title><script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio do formulário
+        
+        var phone = document.getElementById('phone').value;
+        var confirmPhone = document.getElementById('confirm-phone').value;
+        
+        // Remove caracteres não numéricos dos números de telefone
+        phone = phone.replace(/\D/g, '');
+        confirmPhone = confirmPhone.replace(/\D/g, '');
+        
+        // Verifica se os números de telefone são iguais
+        if (phone !== confirmPhone) {
+            document.getElementById('error-message').style.display = 'block';
+        } else {
+            document.getElementById('error-message').style.display = 'none';
+            // Se os números de telefone são iguais, você pode enviar o formulário aqui
+            document.getElementById('contact-form').submit();
+        }
+    });
+
+    // Formata automaticamente o número de telefone ao digitar
+    var phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function() {
+        var value = phoneInput.value.replace(/\D/g, '');
+        var formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7, 11);
+        phoneInput.value = formattedValue;
+    });
+
+    var confirmPhoneInput = document.getElementById('confirm-phone');
+    confirmPhoneInput.addEventListener('input', function() {
+        var value = confirmPhoneInput.value.replace(/\D/g, '');
+        var formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7, 11);
+        confirmPhoneInput.value = formattedValue;
+    });
+</script>
+    
     <style> .input-field {
         width: 100%;
         border: 2px solid #ccc;
@@ -194,40 +230,5 @@ body {
 
     
 
-<script>
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio do formulário
-        
-        var phone = document.getElementById('phone').value;
-        var confirmPhone = document.getElementById('confirm-phone').value;
-        
-        // Remove caracteres não numéricos dos números de telefone
-        phone = phone.replace(/\D/g, '');
-        confirmPhone = confirmPhone.replace(/\D/g, '');
-        
-        // Verifica se os números de telefone são iguais
-        if (phone !== confirmPhone) {
-            document.getElementById('error-message').style.display = 'block';
-        } else {
-            document.getElementById('error-message').style.display = 'none';
-            // Se os números de telefone são iguais, você pode enviar o formulário aqui
-            document.getElementById('contact-form').submit();
-        }
-    });
 
-    // Formata automaticamente o número de telefone ao digitar
-    var phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', function() {
-        var value = phoneInput.value.replace(/\D/g, '');
-        var formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7, 11);
-        phoneInput.value = formattedValue;
-    });
-
-    var confirmPhoneInput = document.getElementById('confirm-phone');
-    confirmPhoneInput.addEventListener('input', function() {
-        var value = confirmPhoneInput.value.replace(/\D/g, '');
-        var formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7, 11);
-        confirmPhoneInput.value = formattedValue;
-    });
-</script>
 </body></html>
