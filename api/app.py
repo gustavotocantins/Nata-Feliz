@@ -16,9 +16,11 @@ def index():
 def consultar():
     return render_template('consultar.html')
 
-@app.route('/cadastrar')
-def cadastrar():
-    return render_template('cadastrar.html')
+@app.route('/cadastrar/<cotas>/')
+def cadastrar(cotas):
+    cotas = cotas
+    valor = float(cotas)*0.5
+    return render_template('cadastrar.html',cotas=cotas,valorreais=valor)
 
 if __name__ == '__main__':
     app.run()

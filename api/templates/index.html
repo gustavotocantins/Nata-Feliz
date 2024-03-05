@@ -204,7 +204,9 @@ function decreaseItemCount(numero) {
 
 
     document.getElementById('participate-btn').addEventListener('click', function() {
-        window.location.href = 'https://natal-feliz.vercel.app/cadastrar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
+        valor = document.getElementById('numbersA').value;
+        
+        window.location.href = 'https://natal-feliz.vercel.app/cadastrar/'+valor+"/"; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
     });</script>
     
 
