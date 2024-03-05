@@ -16,5 +16,9 @@ def index():
 def consultar():
     return render_template('consultar.html')
 
+@app.route('/cadastrar')
+def cadastrar():
+    return render_template('cadastrar.html')
+
 if __name__ == '__main__':
     app.run()

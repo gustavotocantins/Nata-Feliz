@@ -213,6 +213,40 @@ body {
         <input type="text" class="input-field" id="fullname" name="fullname" placeholder="Seu nome completo" required="">
         <button id="submit-btn" type="submit">Cadastrar e Pagar</button>
     </form>
+        <script>
+    document.getElementById('confirm-phone').addEventListener('input', function (e) {
+        let input = e.target.value.replace(/\D/g, '');
+        let formattedInput = '';
+
+        if (input.length > 0) {
+            formattedInput = '(' + input.substring(0, 2);
+        }
+        if (input.length > 2) {
+            formattedInput += ') ' + input.substring(2, 7);
+        }
+        if (input.length > 7) {
+            formattedInput += '-' + input.substring(7, 11);
+        }
+
+        e.target.value = formattedInput;
+    });
+
+    document.getElementById('phone').addEventListener('input', function (e) {
+        let input = e.target.value.replace(/\D/g, '');
+        let formattedInput = '';
+
+        if (input.length > 0) {
+            formattedInput = '(' + input.substring(0, 2);
+        }
+        if (input.length > 2) {
+            formattedInput += ') ' + input.substring(2, 7);
+        }
+        if (input.length > 7) {
+            formattedInput += '-' + input.substring(7, 11);
+        }
+
+        e.target.value = formattedInput;
+    });</script>
         
 
 
