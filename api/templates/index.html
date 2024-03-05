@@ -61,7 +61,7 @@ body {
             cursor: pointer;
             margin-top: 20px;
         }
-    #minhacompra {
+    button.minhacompra {
             background-color: #333;
             color: #fff;
             border: none;
@@ -138,7 +138,7 @@ body {
     <div class="container">
         <img src="../static/iphone.jpg" alt="Foto do Prêmio">
         <h2>Iphone 15 Pro Max</h2>
-<div><p>Concorra a um <b>Iphone 15 Pro Max</b> com 120 GB, 40MP, Face ID e muito mais. Uma cota vale R$ 0.5 reais, quanto mais cotas você comprar, mais chances de ganhar!! </p><div id="valorcentavos">Valor: R$ 0.5</div></div>
+<div><p>Concorra a um <b>Iphone 15 Pro Max</b> com 120 GB, 40MP, Face ID e muito mais. Uma cota vale R$ 0.5 reais, quanto mais cotas você comprar, mais chances de ganhar!! </p><div id="valorcentavos">Valor: R$ 1.5</div></div>
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
     <div class="amount">
         <div class="form-group quantity-input" style="text-align: center; margin-bottom: 0; display: flex; justify-content: center; align-items: center;">
@@ -167,16 +167,17 @@ body {
 <h2>Confiança e Qualidade!</h2>
 
 <p id="rules-text">O sorteio para escolher a cota premiada é realizado pela <b>LOTERIA FEDERAL</b> e divulgado tanto nas nossas redes sociais, além que podemos entrar em contato.</p>
-<button id="minhacompra" style="background-color:gray;">Minhas Compras</button>
+<button style="background-color:gray;" class="minhacompra" id="minhacompra">Minhas Compras</button>
 
-<button id="minhacompra" style="background-color:gray;">Tirar Dúvidas</button>
-    <button id="minhacompra" style="background-color:gray;">Whatsapp </button>
+<button style="background-color:gray;" class="minhacompra">Tirar Dúvidas</button>
+    <button style="background-color:gray;" class="minhacompra">Whatsapp </button>
     </header>
 
 
-    <script>let itemCount = document.getElementById('numbersA').value;
+    <script>
 
 function increaseItemCount(numero) {
+    let itemCount = document.getElementById('numbersA').value;
     itemCount = parseInt(itemCount);
     numero = parseInt(numero);
     itemCount = itemCount + numero;
@@ -186,6 +187,7 @@ function increaseItemCount(numero) {
 }
 
 function decreaseItemCount(numero) {
+    let itemCount = document.getElementById('numbersA').value;
     itemCount = parseInt(itemCount);
     numero = parseInt(numero);
     if(itemCount>1){
@@ -195,7 +197,11 @@ function decreaseItemCount(numero) {
 }
 }
 </script>
-
+<script>
+    document.getElementById('minhacompra').addEventListener('click', function() {
+        window.location.href = 'https://natal-feliz.vercel.app/consultar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
+    });
+</script>
     
 
 

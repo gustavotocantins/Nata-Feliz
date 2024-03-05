@@ -12,5 +12,9 @@ app.static_folder = 'static'
 def index():
     return render_template('index.html')
 
+@app.route('/consultar')
+def consultar():
+    return render_template('consultar.html')
+
 if __name__ == '__main__':
     app.run()
