@@ -140,11 +140,133 @@ p,
 }
 </style>
 <style type="text/css" id="operaUserStyle"></style>
+<script>       
+function abrirFormulario() {
+            document.getElementById("formulario-overlay").style.display = "flex";
+        }
+
+        function fecharFormulario() {
+            document.getElementById("formulario-overlay").style.display = "none";
+        }
+
+        function comprar() {
+            var nome = document.getElementById("nome").value;
+            var endereco = document.getElementById("endereco").value;
+            inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20BETO%20LANCHES%3A%0A";
+            produtos = manipularProdutos(verificarItensNaoZerados());
+            dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A";
+
+            // Construir a mensagem com os dados do pedido e os dados do cliente
+            var mensagem = "📌 MEUS DADOS\nNome: " + nome + "\nEndereço: " + endereco;
+            var mensagemCodificada = encodeURIComponent(mensagem);
+            var linkWhatsApp = inicio+produtos+dados+mensagemCodificada;
+
+            // Redirecionar para o WhatsApp
+            window.location.href = linkWhatsApp;
+        }
+    </script>
+    <script>function increaseItemCount(numero,id,valor) {
+    let itemCount = document.getElementById(id).value;
+    itemCount = parseFloat(itemCount);
+    numero = parseFloat(numero);
+    itemCount = itemCount + numero;
+    document.getElementById(id).value = itemCount;
+
+    valor = parseFloat(valor)
+    sessionStorage.setItem(id,itemCount*valor);
+}
+
+function decreaseItemCount(numero,id,valor) {
+    let itemCount = document.getElementById(id).value;
+    itemCount = parseFloat(itemCount);
+    numero = parseFloat(numero);
+    if(itemCount>0){
+        itemCount = itemCount - numero;
+        document.getElementById(id).value = itemCount;
+
+        valor = parseFloat(valor);
+        sessionStorage.setItem(id,itemCount*valor);
+}
+}
+function atualizarValor() {
+
+    var h3Element = document.getElementById("valortotal");
+    h3Element.innerText = "Novo Valor: " + sessionStorage.getItem('item1');
+}
+
+  function somarItens() {
+            var total = 0;
+            for (var i = 1; i <= 40; i++) {
+                var valorItem = parseFloat(sessionStorage.getItem('item' + i));
+                if (!isNaN(valorItem)) {
+                    total += valorItem;
+                }
+            }
+            // Exibir o total formatado como valor em dinheiro
+            var totalEmDinheiro = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+            var h3Element = document.getElementById("valortotal");
+            h3Element.innerText = "Total em dinheiro: " + totalEmDinheiro;
+        }
+                
+        setInterval(somarItens, 10);
+function verificarItensNaoZerados() {
+    var itensNaoZerados = [];
+    
+    // Definir uma lista de nomes de produtos relacionados aos itens
+    var nomesProdutos = {
+        item1: document.getElementById('item1').value+" Hambúrguer Dog",
+        item2: document.getElementById('item2').value+" Hambúrguer Duplo",
+        item3: document.getElementById('item3').value+" Misto",
+        item4:document.getElementById('item4').value+" Misto Queijo",
+        item5: document.getElementById('item5').value+" Refrigerante"
+        // Adicione outros itens conforme necessário
+    };
+    
+    // Percorrer os itens do sessionStorage
+    for (var i = 1; i <= 40; i++) {
+        var valorItem = parseFloat(sessionStorage.getItem('item' + i));
+        if (!isNaN(valorItem) && valorItem !== 0) {
+            // Se o valor do item não for zero, adicioná-lo à lista de itens não zerados
+            itensNaoZerados.push('item' + i);
+        }
+    }
+    
+    // Relacionar os itens não zerados com os nomes dos produtos
+    var produtosRelacionados = itensNaoZerados.map(function(item) {
+        return nomesProdutos[item];
+    });
+    
+    // Retornar a lista de itens não zerados e os nomes dos produtos relacionados
+    return produtosRelacionados;
+}
+
+        
+        function manipularProdutos(produtosEncontrados) {
+    // Filtrar apenas os elementos válidos e converter em uma única string
+    var produtosString = produtosEncontrados.filter(item => item !== undefined).map(item => item.replace(/[^\w\s]/g, '').replace(/\s/g, '%20') + '%0A').join('');
+
+    return produtosString;
+}</script>
 <script>
-    window.onload = function() {
-        document.getElementById("formulario-overlay").style.display = "none"; 
-        };
+    document.getElementById('minhacompra').addEventListener('click', function() {
+        window.location.href = 'https://natal-feliz.vercel.app/consultar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
+    });
+
+    document.getElementById('participate-btn').addEventListener('click', function() {
+        valor = document.getElementById('numbersA').value;
+
+        window.location.href = 'https://natal-feliz.vercel.app/cadastrar/'+valor+"/"; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
+    });
+
+function compraritens(){
+            inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20BETO%20LANCHES%3A%0A";
+        produtos = manipularProdutos(verificarItensNaoZerados());
+        dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A"
+       window.location.href = inicio+produtos+dados
+    }
 </script>
+
+
 </head>
 <body>
     <header style="background-color:#FF7300">
@@ -153,7 +275,18 @@ p,
         
     </div>
     
-    </header><div>aa</div>
+    </header>
+    <div id="formulario-overlay" style="display: none;">
+        <div id="formulario">
+            <h2>Falta pouco para comer seu lanche! Informe:</h2>
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="endereco" placeholder="Endereço">
+            <button onclick="comprar()">Enviar Pedido</button>
+            <div id="formulario-footer">
+                <button onclick="fecharFormulario()">voltar</button>
+            </div>
+        </div>
+    </div><div>aa</div>
 <div>aa</div>
 <div>aa</div>
 <div>aa</div><br>
@@ -345,119 +478,11 @@ p,
     
 
 
-    <script>function increaseItemCount(numero,id,valor) {
-    let itemCount = document.getElementById(id).value;
-    itemCount = parseFloat(itemCount);
-    numero = parseFloat(numero);
-    itemCount = itemCount + numero;
-    document.getElementById(id).value = itemCount;
-
-    valor = parseFloat(valor)
-    sessionStorage.setItem(id,itemCount*valor);
-}
-
-function decreaseItemCount(numero,id,valor) {
-    let itemCount = document.getElementById(id).value;
-    itemCount = parseFloat(itemCount);
-    numero = parseFloat(numero);
-    if(itemCount>0){
-        itemCount = itemCount - numero;
-        document.getElementById(id).value = itemCount;
-
-        valor = parseFloat(valor);
-        sessionStorage.setItem(id,itemCount*valor);
-}
-}
-function atualizarValor() {
-
-    var h3Element = document.getElementById("valortotal");
-    h3Element.innerText = "Novo Valor: " + sessionStorage.getItem('item1');
-}
-
-  function somarItens() {
-            var total = 0;
-            for (var i = 1; i <= 40; i++) {
-                var valorItem = parseFloat(sessionStorage.getItem('item' + i));
-                if (!isNaN(valorItem)) {
-                    total += valorItem;
-                }
-            }
-            // Exibir o total formatado como valor em dinheiro
-            var totalEmDinheiro = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-            var h3Element = document.getElementById("valortotal");
-            h3Element.innerText = "Total em dinheiro: " + totalEmDinheiro;
-        }
-                
-        setInterval(somarItens, 10);
-function verificarItensNaoZerados() {
-    var itensNaoZerados = [];
     
-    // Definir uma lista de nomes de produtos relacionados aos itens
-    var nomesProdutos = {
-        item1: document.getElementById('item1').value+" Hambúrguer Dog",
-        item2: document.getElementById('item2').value+" Hambúrguer Duplo",
-        item3: document.getElementById('item3').value+" Misto",
-        item4:document.getElementById('item4').value+" Misto Queijo",
-        item5: document.getElementById('item5').value+" Refrigerante"
-        // Adicione outros itens conforme necessário
-    };
-    
-    // Percorrer os itens do sessionStorage
-    for (var i = 1; i <= 40; i++) {
-        var valorItem = parseFloat(sessionStorage.getItem('item' + i));
-        if (!isNaN(valorItem) && valorItem !== 0) {
-            // Se o valor do item não for zero, adicioná-lo à lista de itens não zerados
-            itensNaoZerados.push('item' + i);
-        }
-    }
-    
-    // Relacionar os itens não zerados com os nomes dos produtos
-    var produtosRelacionados = itensNaoZerados.map(function(item) {
-        return nomesProdutos[item];
-    });
-    
-    // Retornar a lista de itens não zerados e os nomes dos produtos relacionados
-    return produtosRelacionados;
-}
-
-        
-        function manipularProdutos(produtosEncontrados) {
-    // Filtrar apenas os elementos válidos e converter em uma única string
-    var produtosString = produtosEncontrados.filter(item => item !== undefined).map(item => item.replace(/[^\w\s]/g, '').replace(/\s/g, '%20') + '%0A').join('');
-
-    return produtosString;
-}</script>
 <div class="footer"><h3 id="valortotal">Total em dinheiro: R$&nbsp;0,00</h3>
     
     <button id="comprar" onclick="abrirFormulario()">COMPRAR</button>
-</div><script>
-    document.getElementById('minhacompra').addEventListener('click', function() {
-        window.location.href = 'https://natal-feliz.vercel.app/consultar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
-    });
-
-    document.getElementById('participate-btn').addEventListener('click', function() {
-        valor = document.getElementById('numbersA').value;
-
-        window.location.href = 'https://natal-feliz.vercel.app/cadastrar/'+valor+"/"; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
-    });
-
-function compraritens(){
-            inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20BETO%20LANCHES%3A%0A";
-        produtos = manipularProdutos(verificarItensNaoZerados());
-        dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A"
-       window.location.href = inicio+produtos+dados
-    }
-</script><div id="formulario-overlay" style="display: flex;">
-        <div id="formulario">
-            <h2>Falta pouco para comer seu lanche! Informe:</h2>
-            <input type="text" id="nome" placeholder="Nome">
-            <input type="text" id="endereco" placeholder="Endereço">
-            <button onclick="comprar()">Enviar Pedido</button>
-            <div id="formulario-footer">
-                <button onclick="fecharFormulario()">voltar</button>
-            </div>
-        </div>
-    </div><style>
+</div><style>
         #formulario-overlay {
             display: none;
             position: fixed;
@@ -513,30 +538,6 @@ function compraritens(){
             text-align: center;
             margin-top: 10px;
         }
-    </style><script>       
-function abrirFormulario() {
-            document.getElementById("formulario-overlay").style.display = "flex";
-        }
-
-        function fecharFormulario() {
-            document.getElementById("formulario-overlay").style.display = "none";
-        }
-
-        function comprar() {
-            var nome = document.getElementById("nome").value;
-            var endereco = document.getElementById("endereco").value;
-            inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20BETO%20LANCHES%3A%0A";
-            produtos = manipularProdutos(verificarItensNaoZerados());
-            dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A"
-
-            // Construir a mensagem com os dados do pedido e os dados do cliente
-            var mensagem = 📌 MEUS DADOS\nNome: " + nome + "\nEndereço: " + endereco;
-            var mensagemCodificada = encodeURIComponent(mensagem);
-            var linkWhatsApp = inicio+produtos+dados+mensagemCodificada;
-
-            // Redirecionar para o WhatsApp
-            window.location.href = linkWhatsApp;
-        }
-    </script>
+    </style>
 
 </body></html>
