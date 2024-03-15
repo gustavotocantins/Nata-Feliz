@@ -205,7 +205,7 @@ body {
         <h1>Will Premiações</h1>
     </header>
     <div class="container">
-        <img src="../static/iphone.jpg" alt="Foto do Prêmio">
+        <img src="{{ url_for('static', filename='iphone.jpg') }}" alt="Foto do Prêmio">
         <h2>Você comprou {{ cotas }} cotas no valor de R$ {{ valorreais }}</h2>
 <form>
         <input type="tel" class="input-field" id="phone" name="phone" placeholder="Seu número de telefone" required="">
