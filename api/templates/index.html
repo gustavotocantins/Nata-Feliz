@@ -423,7 +423,7 @@ function verificarItensNaoZerados() {
 }</script>
 <div class="footer"><h3 id="valortotal">Total em dinheiro: R$&nbsp;0,00</h3>
     
-    <button id="comprar" onclick="compraritens()">COMPRAR</button>
+    <button id="comprar" onclick="abrirFormulario()">COMPRAR</button>
 </div><script>
     document.getElementById('minhacompra').addEventListener('click', function() {
         window.location.href = 'https://natal-feliz.vercel.app/consultar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
@@ -441,5 +441,93 @@ function compraritens(){
         dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A"
        window.location.href = inicio+produtos+dados
     }
-</script>
+</script><div id="formulario-overlay" style="display: flex;">
+        <div id="formulario">
+            <h2>Falta pouco para comer seu lanche! Informe:</h2>
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="endereco" placeholder="Endereço">
+            <button onclick="comprar()">Enviar Pedido</button>
+            <div id="formulario-footer">
+                <button onclick="fecharFormulario()">voltar</button>
+            </div>
+        </div>
+    </div><style>
+        #formulario-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            z-index: 999; /* Garante que o formulário esteja acima de todos os outros elementos */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #formulario {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos para o cabeçalho do formulário */
+        #formulario h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        /* Estilos para os campos de entrada */
+        #formulario input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para o botão */
+        #formulario button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF7300;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilos para o rodapé do formulário */
+        #formulario-footer {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style><script>
+        function abrirFormulario() {
+            document.getElementById("formulario-overlay").style.display = "flex";
+        }
+
+        function fecharFormulario() {
+            document.getElementById("formulario-overlay").style.display = "none";
+        }
+
+        function comprar() {
+            var nome = document.getElementById("nome").value;
+            var endereco = document.getElementById("endereco").value;
+
+            // Construir a mensagem com os dados do pedido e os dados do cliente
+            var mensagem = "🍔 BETO LANCHES:\n" + verificarItensNaoZerados().join('') + "\n📌 MEUS DADOS\nNome: " + nome + "\nEndereço: " + endereco;
+            var mensagemCodificada = encodeURIComponent(mensagem);
+            var linkWhatsApp = "https://wa.me/559186220426?text=" + mensagemCodificada;
+
+            // Redirecionar para o WhatsApp
+            window.location.href = linkWhatsApp;
+        }
+    </script>
+
 </body></html>
