@@ -140,7 +140,14 @@ p,
 }
 </style>
 <style type="text/css" id="operaUserStyle"></style>
-<script>       
+<script>   
+    function limparSessionStorage() {
+    sessionStorage.clear();
+}
+
+// Adicionar um ouvinte de evento para o evento "load" da janela
+window.onload = limparSessionStorage;
+    
 function abrirFormulario() {
             document.getElementById("formulario-overlay").style.display = "flex";
         }
@@ -154,7 +161,7 @@ function abrirFormulario() {
             var endereco = document.getElementById("endereco").value;
             inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20*BETO%20LANCHES%3A*%0A";
             produtos = manipularProdutos(verificarItensNaoZerados());
-            dados = "%0A%F0%9F%93%8C%20*MEUS%20DADOS*%0ANome%3A";
+            dados = "%0A%F0%9F%93%8C%20*MEUS%20DADOS*%0ANome%3A%20";
             // Construir a mensagem com os dados do pedido e os dados do cliente
             var mensagem = nome + "\nEndereço: " + endereco+"\n\n✅ *VALOR TOTAL:* R$ "+valortotal()+"\nPIX: 04588776207";
             var mensagemCodificada = encodeURIComponent(mensagem);
