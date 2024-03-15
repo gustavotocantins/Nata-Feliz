@@ -155,9 +155,6 @@ function abrirFormulario() {
             inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20BETO%20LANCHES%3A%0A";
             produtos = manipularProdutos(verificarItensNaoZerados());
             dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A";
-
-✅ VALOR TOTAL: R$ 54,00 
-PIX: 04588776207
             // Construir a mensagem com os dados do pedido e os dados do cliente
             var mensagem = nome + "\nEndereço: " + endereco+"\n\n✅ VALOR TOTAL: R$ "+valortotal()+"\nPIX: 04588776207";
             var mensagemCodificada = encodeURIComponent(mensagem);
