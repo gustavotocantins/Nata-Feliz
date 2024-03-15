@@ -220,11 +220,11 @@ function verificarItensNaoZerados() {
     
     // Definir uma lista de nomes de produtos relacionados aos itens
     var nomesProdutos = {
-        item1: document.getElementById('item1').value+" Hambúrguer Dog",
-        item2: document.getElementById('item2').value+" Hambúrguer Duplo",
-        item3: document.getElementById('item3').value+" Misto",
-        item4:document.getElementById('item4').value+" Misto Queijo",
-        item5: document.getElementById('item5').value+" Refrigerante"
+        item1: document.getElementById('item1').value+" Ki-Lanchao",
+        item2: document.getElementById('item2').value+" X-tudo Especial",
+        item3: document.getElementById('item3').value+" Misto Especial",
+        item4:document.getElementById('item4').value+" Suco de Cupuaçu",
+        item5: document.getElementById('item5').value+" Suco de Goiaba"
         // Adicione outros itens conforme necessário
     };
     
@@ -295,16 +295,16 @@ function valortotal() {
 <div class="produto">
         <img src="../static/hamb2.png" alt="Foto do Prêmio" width="2ox">
     <div class="informacoes">
-        <h2 id="titulo1">Hambúrguer Dog</h2>
-<p>Batata, queijo, margarida e maionese.</p>
-<h3>Valor: R$ 19,50</h3>
+        <h2 id="titulo1">Ki-Lanchão</h2>
+<p>2 Carne Frango, 2 Ovos, Salsicha, Bacon, calabresa, 2 queijo, 2 Presuntos, tomate, milho, ervilha e alface</p>
+<h3>Valor: R$ 20,00</h3>
 
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
     <div class="amount">
         <div class="form-group quantity-input" style="text-align: center; margin-bottom: 0; display: flex; justify-content: center; align-items: center;">
-            <button class="quantity-button" onclick="decreaseItemCount(1,'item1',19.5)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
+            <button class="quantity-button" onclick="decreaseItemCount(1,'item1',20)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
             <input type="number" id="item1" class="quantity-input-field" value="0" min="5" max="6000" onblur="numerosAleatorio();" placeholder="Quantidade de cotas">
-            <button class="quantity-button" onclick="increaseItemCount(1,'item1',19.5)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
+            <button class="quantity-button" onclick="increaseItemCount(1,'item1',20)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
         </div>
     </div>
 </div></div>
@@ -376,16 +376,16 @@ function valortotal() {
 <div class="produto">
         <img src="../static/hamb1.png" alt="Foto do Prêmio" width="2ox">
     <div class="informacoes">
-        <h2>Hambúrguer Duplo</h2>
-<p>Batata, queijo, margarida e maionese.</p>
-<h3>Valor: R$ 21,00</h3>
+        <h2>X-Tudo Especial</h2>
+<p>Carne, Bacon, Calabresa, Frango, Salsicha, Presunto, Queijo, Ovo, Ervilha, Milho,  Pepino, Tomate, Alface</p>
+<h3>Valor: R$ 17,00</h3>
 
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
     <div class="amount">
         <div class="form-group quantity-input" style="text-align: center; margin-bottom: 0; display: flex; justify-content: center; align-items: center;">
-            <button class="quantity-button" onclick="decreaseItemCount(1,'item2',20)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
+            <button class="quantity-button" onclick="decreaseItemCount(1,'item2',17)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
             <input type="number" id="item2" class="quantity-input-field" value="0" min="5" max="6000" onblur="numerosAleatorio();" placeholder="Quantidade de cotas">
-            <button class="quantity-button" onclick="increaseItemCount(1,'item2',21)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
+            <button class="quantity-button" onclick="increaseItemCount(1,'item2',17)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
         </div>
     </div>
 </div></div>
@@ -406,16 +406,16 @@ function valortotal() {
 <div class="produto">
         <img src="../static/misto.png" alt="Foto do Prêmio" width="2ox">
     <div class="informacoes">
-        <h2>Hambúrguer Duplo</h2>
-<p>Misto simples</p>
-<h3>Valor: R$ 10,00</h3>
+        <h2>Misto Especial</h2>
+<p>Queijo, Presunto e Ovo</p>
+<h3>Valor: R$ 5,00</h3>
 
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
     <div class="amount">
         <div class="form-group quantity-input" style="text-align: center; margin-bottom: 0; display: flex; justify-content: center; align-items: center;">
-            <button class="quantity-button" onclick="decreaseItemCount(1,'item3',10)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
+            <button class="quantity-button" onclick="decreaseItemCount(1,'item3',5)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
             <input type="number" id="item3" class="quantity-input-field" value="0" min="5" max="6000" onblur="numerosAleatorio();" placeholder="Quantidade de cotas">
-            <button class="quantity-button" onclick="increaseItemCount(1,'item3',10)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
+            <button class="quantity-button" onclick="increaseItemCount(1,'item3',5)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
         </div>
     </div>
 </div></div>
@@ -425,18 +425,18 @@ function valortotal() {
     </div><div class="container">
     
 <div class="produto">
-        <img src="../static/misto.png" alt="Foto do Prêmio" width="2ox">
+        <img src="../static/sucoC.png" alt="Foto do Prêmio" width="2ox">
     <div class="informacoes">
-        <h2>Hambúrguer Duplo</h2>
-<p>Misto simples</p>
-<h3>Valor: R$ 10,00</h3>
+        <h2>Suco de Cupuaçu</h2>
+<p>Copo de 400mL</p>
+<h3>Valor: R$ 5,00</h3>
 
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
     <div class="amount">
         <div class="form-group quantity-input" style="text-align: center; margin-bottom: 0; display: flex; justify-content: center; align-items: center;">
-            <button class="quantity-button" onclick="decreaseItemCount(1,'item4',13.90)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
+            <button class="quantity-button" onclick="decreaseItemCount(1,'item4',5)"><i style="color:white;" class="bi bi-dash-circle quantity-icon"> - </i></button>
             <input type="number" id="item4" class="quantity-input-field" value="0" min="5" max="6000" onblur="numerosAleatorio();" placeholder="Quantidade de cotas">
-            <button class="quantity-button" onclick="increaseItemCount(1,'item4',13.90)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
+            <button class="quantity-button" onclick="increaseItemCount(1,'item4',5)"><i class="bi bi-plus-circle quantity-icon" style="color:white;">+</i></button>
         </div>
     </div>
 </div></div>
@@ -447,10 +447,10 @@ function valortotal() {
     <div class="container">
     
 <div class="produto">
-        <img src="../static/coca.png" alt="Foto do Prêmio" width="2ox">
+        <img src="../static/sucoG.png" alt="Foto do Prêmio" width="2ox">
     <div class="informacoes">
-        <h2>Refrigerante</h2>
-<p>Temos refrigerante da coca-cola, guaraná e pepsi de 600mL</p>
+        <h2>Suco de Goiaba</h2>
+<p>Copo de 400mL</p>
 <h3>Valor: R$ 5,00</h3>
 
         <div class="quantity-container" style="margin-top: 10px; margin-bottom: 0px; text-align: center;">
