@@ -220,7 +220,7 @@ function verificarItensNaoZerados() {
     
     // Definir uma lista de nomes de produtos relacionados aos itens
     var nomesProdutos = {
-        item1: document.getElementById('item1').value+" Ki Lanch%C3%A3o",
+        item1: document.getElementById('item1').value+encodeURIComponent(" Ki-Lanchão"),
         item2: document.getElementById('item2').value+" X tudo Especial",
         item3: document.getElementById('item3').value+" Misto Especial",
         item4:document.getElementById('item4').value+" Suco de Cupua%C3%A7u",
@@ -249,7 +249,7 @@ function verificarItensNaoZerados() {
         
         function manipularProdutos(produtosEncontrados) {
     // Filtrar apenas os elementos válidos e converter em uma única string
-    var produtosString = produtosEncontrados.filter(item => item !== undefined).map(item => item.replace(/[^\w\s]/g, '').replace(/\s/g, '%20') + '%0A').join('');
+    var produtosString = produtosEncontrados.filter(item => item !== undefined).map(item => item.replace(/\s/g, '%20') + '%0A').join('');
 
     return produtosString;
 }
