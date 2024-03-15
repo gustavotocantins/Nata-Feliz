@@ -139,7 +139,13 @@ p,
     color: #333;
 }
 </style>
-<style type="text/css" id="operaUserStyle"></style></head>
+<style type="text/css" id="operaUserStyle"></style>
+<script>
+    window.onload = function() {
+        document.getElementById("formulario-overlay").style.display = "none"; 
+        };
+</script>
+</head>
 <body>
     <header style="background-color:#FF7300">
         <img src="../static/betolanches2.png" alt="Foto do Prêmio" id="logo">
@@ -507,8 +513,8 @@ function compraritens(){
             text-align: center;
             margin-top: 10px;
         }
-    </style><script>
-        function abrirFormulario() {
+    </style><script>       
+function abrirFormulario() {
             document.getElementById("formulario-overlay").style.display = "flex";
         }
 
@@ -519,11 +525,14 @@ function compraritens(){
         function comprar() {
             var nome = document.getElementById("nome").value;
             var endereco = document.getElementById("endereco").value;
+            inicio = "https://wa.me/559186220426?text=%F0%9F%8D%94%20BETO%20LANCHES%3A%0A";
+            produtos = manipularProdutos(verificarItensNaoZerados());
+            dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A"
 
             // Construir a mensagem com os dados do pedido e os dados do cliente
-            var mensagem = "🍔 BETO LANCHES:\n" + verificarItensNaoZerados().join('') + "\n📌 MEUS DADOS\nNome: " + nome + "\nEndereço: " + endereco;
+            var mensagem = 📌 MEUS DADOS\nNome: " + nome + "\nEndereço: " + endereco;
             var mensagemCodificada = encodeURIComponent(mensagem);
-            var linkWhatsApp = "https://wa.me/559186220426?text=" + mensagemCodificada;
+            var linkWhatsApp = inicio+produtos+dados+mensagemCodificada;
 
             // Redirecionar para o WhatsApp
             window.location.href = linkWhatsApp;
