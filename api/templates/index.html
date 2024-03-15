@@ -388,11 +388,11 @@ function verificarItensNaoZerados() {
     
     // Definir uma lista de nomes de produtos relacionados aos itens
     var nomesProdutos = {
-        item1: "Hambúrguer Dog",
-        item2: "Hambúrguer Duplo",
-        item3: "Misto",
-        item4:"Misto Queijo",
-        item5: "Refrigerante"
+        item1: document.getElementById('item1').value+" Hambúrguer Dog",
+        item2: document.getElementById('item2').value+" Hambúrguer Duplo",
+        item3: document.getElementById('item3').value+" Misto",
+        item4:document.getElementById('item4').value+" Misto Queijo",
+        item5: document.getElementById('item5').value+" Refrigerante"
         // Adicione outros itens conforme necessário
     };
     
@@ -421,7 +421,7 @@ function verificarItensNaoZerados() {
 
     return produtosString;
 }</script>
-<div class="footer"><h3 id="valortotal">Total em dinheiro: R$&nbsp;69,40</h3>
+<div class="footer"><h3 id="valortotal">Total em dinheiro: R$&nbsp;0,00</h3>
     
     <button id="comprar" onclick="compraritens()">COMPRAR</button>
 </div><script>
