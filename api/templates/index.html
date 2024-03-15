@@ -156,8 +156,10 @@ function abrirFormulario() {
             produtos = manipularProdutos(verificarItensNaoZerados());
             dados = "%0A%F0%9F%93%8C%20MEUS%20DADOS%0ANome%3A";
 
+✅ VALOR TOTAL: R$ 54,00 
+PIX: 04588776207
             // Construir a mensagem com os dados do pedido e os dados do cliente
-            var mensagem = "📌 MEUS DADOS\nNome: " + nome + "\nEndereço: " + endereco;
+            var mensagem = nome + "\nEndereço: " + endereco+"\n\n✅ VALOR TOTAL: R$ "+valortotal()+"\nPIX: 04588776207";
             var mensagemCodificada = encodeURIComponent(mensagem);
             var linkWhatsApp = inicio+produtos+dados+mensagemCodificada;
 
@@ -246,7 +248,18 @@ function verificarItensNaoZerados() {
     var produtosString = produtosEncontrados.filter(item => item !== undefined).map(item => item.replace(/[^\w\s]/g, '').replace(/\s/g, '%20') + '%0A').join('');
 
     return produtosString;
-}</script>
+}
+function valortotal() {
+            var total = 0;
+            for (var i = 1; i <= 40; i++) {
+                var valorItem = parseFloat(sessionStorage.getItem('item' + i));
+                if (!isNaN(valorItem)) {
+                    total += valorItem;
+                }
+            }
+            // Exibir o total formatado como valor em dinheiro
+            return total
+        }</script>
 <script>
     document.getElementById('minhacompra').addEventListener('click', function() {
         window.location.href = 'https://natal-feliz.vercel.app/consultar'; // Substitua 'outra_pagina.html' pela URL da página para a qual você deseja redirecionar o usuário.
@@ -479,7 +492,7 @@ function compraritens(){
 
 
     
-<div class="footer"><h3 id="valortotal">Total em dinheiro: R$&nbsp;0,00</h3>
+<div class="footer"><h3 id="valortotal">Total em dinheiro: R$&nbsp;40,50</h3>
     
     <button id="comprar" onclick="abrirFormulario()">COMPRAR</button>
 </div><style>
